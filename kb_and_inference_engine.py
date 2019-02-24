@@ -144,7 +144,7 @@ class KnowledgeBase(object):
         Args:
             fact (Fact) - Statement to be asked (will be converted into a Fact)
         Returns:
-            listof Bindings|False - list of Bindings if result found, False otherwise
+            listof Bindings|False -  if result found, False otherwise
         """
         #print("Asking {!r}".format(fact))
         if isinstance(fact, Fact):

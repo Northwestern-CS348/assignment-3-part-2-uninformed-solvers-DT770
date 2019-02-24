@@ -17,3 +17,22 @@ fact: (pred obj1 obj2)
 rule: ((pred obj1 obj2) (pred obj2 obj3)) -> (pred obj1 obj3)
 
 """
+fact: (coordinate 5 pos1 pos1)
+fact: (coordinate 4 pos2 pos1)
+fact: (coordinate -1 pos3 pos1)
+fact: (coordinate 8 pos3 pos2)
+fact: (coordinate 2 pos3 pos3)
+fact: (coordinate 3 pos2 pos3)
+fact: (coordinate 7 pos1 pos3)
+fact: (coordinate 6 pos1 pos2)
+fact: (coordinate 1 pos2 pos2)
+
+rule: ((coordinate -1 ?posx pos1) (coordinate ?tileA ?posx pos2)) -> (movable ?tileA ?posx pos2 ?posx ?pos1)
+rule: ((coordinate -1 ?posx pos2) (coordinate ?tileA ?posx pos1)) -> (movable ?tileA ?posx pos1 ?posx ?pos2)
+rule: ((coordinate -1 ?posx pos2) (coordinate ?tileA ?posx pos3)) -> (movable ?tileA ?posx pos3 ?posx ?pos2)
+rule: ((coordinate -1 ?posx pos3) (coordinate ?tileA ?posx pos2)) -> (movable ?tileA ?posx pos2 ?posx ?pos3)
+
+rule: ((coordinate -1 pos1 ?posy) (coordinate ?tileA pos2 ?posy)) -> (movable ?tileA pos2 ?posy pos1 ?posy)
+rule: ((coordinate -1 pos2 ?posy) (coordinate ?tileA pos1 ?posy)) -> (movable ?tileA pos1 ?posy pos2 ?posy)
+rule: ((coordinate -1 pos2 ?posy) (coordinate ?tileA pos3 ?posy)) -> (movable ?tileA pos3 ?posy pos2 ?posy)
+rule: ((coordinate -1 pos3 ?posy) (coordinate ?tileA pos2 ?posy)) -> (movable ?tileA pos2 ?posy pos3 ?posy)
